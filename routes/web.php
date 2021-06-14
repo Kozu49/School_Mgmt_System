@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\FeeCategoryController;
 use App\Http\Controllers\backend\FeeCategoryAmountController;
 use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\SubjectController;
+use App\Http\Controllers\backend\DesignationController;
 
 
 
@@ -126,7 +127,21 @@ Route::prefix('setup')->group(function(){
     Route::post('school/subject/update/{id}',[SubjectController::class,'UpdateSchoolSubject'])->name('school.subject.update');
     Route::get('school/subject/delete/{id}',[SubjectController::class,'DeleteSchoolSubject'])->name('school.subject.delete');
 
+    //Assign Subject
+    Route::get('assign/subject/view',[SubjectController::class,'ViewAssignSubject'])->name('assign.subject.view');
+    Route::get('assign/subject/add',[SubjectController::class,'AddAssignSubject'])->name('assign.subject.add');
+    Route::post('assign/subject/store',[SubjectController::class,'StoreAssignSubject'])->name('assign.subject.store');
+    Route::get('assign/subject/edit/{class_id}',[SubjectController::class,'EditAssignSubject'])->name('assign.subject.edit');
+    Route::post('assign/subject/update/{class_id}',[SubjectController::class,'UpdateAssignSubject'])->name('assign.subject.update');
+    Route::get('assign/subject/details/{class_id}',[SubjectController::class,'DetailsAssignSubject'])->name('assign.subject.details');
 
+    //Designation
+    Route::get('designation/view',[DesignationController::class,'ViewDesignation'])->name('designation.view');
+    Route::get('designation/add',[DesignationController::class,'AddDesignation'])->name('designation.add');
+    Route::post('designation/store',[DesignationController::class,'StoreDesignation'])->name('designation.store');
+    Route::get('designation/edit/{id}',[DesignationController::class,'EditDesignation'])->name('designation.edit');
+    Route::post('designation/update/{id}',[DesignationController::class,'UpdateDesignation'])->name('designation.update');
+    Route::get('designation/delete/{id}',[DesignationController::class,'DeleteDesignation'])->name('designation.delete');
 
 
 });
