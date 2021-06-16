@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\FeeCategoryAmountController;
 use App\Http\Controllers\backend\ExamController;
 use App\Http\Controllers\backend\SubjectController;
 use App\Http\Controllers\backend\DesignationController;
+use App\Http\Controllers\backend\student\StudentRegController;
 
 
 
@@ -145,3 +146,22 @@ Route::prefix('setup')->group(function(){
 
 
 });
+
+//Student Management Route
+
+//Student Resistration Route
+Route::prefix('students')->group(function(){
+    Route::get('registration/view',[StudentRegController::class,'ViewStudentReg'])->name('student.registration.view');
+    Route::get('registration/add',[StudentRegController::class,'AddStudentReg'])->name('student.reg.add');
+    Route::post('registration/store',[StudentRegController::class,'StoreStudentReg'])->name('student.reg.store');
+    Route::get('reg/student/search',[StudentRegController::class,'SearchStudentReg'])->name('reg.student.search');
+    Route::get('reg/student/edit/{student_id}',[StudentRegController::class,'EditStudentReg'])->name('student.reg.edit');
+    Route::post('reg/student/update/{student_id}',[StudentRegController::class,'UpdateStudentReg'])->name('student.reg.update');
+    Route::get('reg/student/promote/{student_id}',[StudentRegController::class,'PromoteStudentReg'])->name('student.reg.promote');
+    Route::post('reg/student/promote/update/{student_id}',[StudentRegController::class,'UpdatePromoteStudentReg'])->name('student.reg.promote.update');
+
+
+});
+
+
+

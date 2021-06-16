@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function ViewUser(){
-        $users=User::all();
+        $users=User::where('usertype','Admin')->get();
         return view('backend.user.view_user',['users'=>$users]);
 
     }
@@ -25,16 +25,20 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users|max:255',
-            'password' => 'required',
-            'usertype' => 'required',
+            
+            
         ]);
 
-        
+        $code=rand(0000,9999);
         User::insert([
+           
+
+            'code'=>$code,
             'name'=>$request->name,
+            'role'=>$request->role,
             'email'=>$request->email,
-            'usertype'=>$request->usertype,
-            'password'=>Hash::make($request->password),              
+            'usertype'=>'Admin',
+            'password'=>Hash::make($code),              
         ]);
         $notification=array(
             'message'=> 'Users Added successfully',
@@ -55,7 +59,7 @@ class UserController extends Controller
         User::find($id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'usertype'=>$request->usertype,
+            'role'=>$request->role,
 
 
         ]);

@@ -18,7 +18,18 @@ class AddExtraColumnInUser extends Migration
             $table->string('address')->nullable();
             $table->string('gender')->nullable();
             $table->string('image')->nullable();
-            $table->integer('status')->nullable();
+            $table->integer('status')->default(1);
+            $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('id_no')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('code')->nullable();
+            $table->string('role')->nullable();
+            $table->date('join_date')->nullable();
+            $table->integer('designation_id')->nullable();
+            $table->double('salary')->nullable();
+        
 
 
         });

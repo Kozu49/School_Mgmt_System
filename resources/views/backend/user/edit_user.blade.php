@@ -30,14 +30,14 @@
                         <div class="form-group">
                                 <h5>User Role <span class="text-danger">*</span></h5>
                                 <div class="controls">
-                                    <select name="usertype" id="select" required="" class="form-control">
+                                    <select name="role" id="select" required="" class="form-control">
                                         <option value="" selected="" disabled="">Select Role</option>
                                         <option value="Admin"
-                                        <?php if($user->usertype=="Admin") echo "selected" ; ?>
+                                        <?php if($user->role=="Admin") echo "selected" ; ?>
                                         >Admin</option>
-                                        <option value="User"
-                                        <?php if($user->usertype=="User") echo "selected" ; ?>
-                                        >User</option>
+                                        <option value="Operator"
+                                        <?php if($user->role=="Operator") echo "selected" ; ?>
+                                        >Operator</option>
                                         
                                     </select>
                                 </div>
