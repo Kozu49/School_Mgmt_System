@@ -117,6 +117,7 @@
                         <td width="20%">
                             <a href="{{route('student.reg.edit',$assign->student_id)}}" class="btn btn-info">Edit</a>
                             <a href="{{route('student.reg.promote',$assign->student_id)}}" class="btn btn-danger">Promote</a>
+                            <a target="_blank" href="{{route('student.reg.details',$assign->student_id)}}" class="btn btn-primary">Details</a>
 
                         </td>
                         </tr>
@@ -163,6 +164,7 @@
                         <td width="20%">
                             <a href="{{route('student.reg.edit',$assign->student_id)}}" class="btn btn-info">Edit</a>
                             <a href="{{route('student.reg.promote',$assign->student_id)}}" class="btn btn-danger">Promote</a>
+                            <a target="_blank" href="{{route('student.reg.details',$assign->student_id)}}" class="btn btn-primary">Details</a>
 
                         </td>
                         </tr>
